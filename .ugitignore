@@ -1,0 +1,10 @@
+.venv
+__pycache__
+build
+dist
+wheels
+ugit.egg-info
+.git
+.ugit
+.ugitignore
+.gitignore

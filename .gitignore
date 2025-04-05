@@ -1,0 +1,9 @@
+.ugit
+.venv
+*.pyc
+__pycache__
+
+*.egg-info
+build
+dist
+wheels
