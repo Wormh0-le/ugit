@@ -27,7 +27,7 @@ def hash_object(file: str):
 @app.command()
 def cat_file(object: Annotated[str, typer.Argument(callback=base.get_oid)]):
     sys.stdout.flush()
-    sys.stdout.write(data.get_object(object, expected=None))
+    sys.stdout.buffer.write(data.get_object(object, expected=None))
 
 
 @app.command()
