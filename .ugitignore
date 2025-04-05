@@ -8,3 +8,4 @@ ugit.egg-info
 .ugit
 .ugitignore
 .gitignore
+.python-version

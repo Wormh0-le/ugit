@@ -65,7 +65,7 @@ def show(oid: Annotated[str, typer.Option(callback=base.get_oid)]='@'):
     commit = base.get_commit(oid)
     parent_tree = None
     if commit.parents:
-        parent_tree = base.get_commit(commit.parent[0]).tree
+        parent_tree = base.get_commit(commit.parents[0]).tree
     _print_commit(oid, commit)
     result = _diff.diff_trees(base.get_tree(parent_tree), base.get_tree(commit.tree))
     sys.stdout.flush()

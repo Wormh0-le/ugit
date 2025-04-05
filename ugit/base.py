@@ -138,7 +138,7 @@ def read_tree_merged(t_base, t_HEAD, t_other, update_working=True):
 def _checkout_index(index):
     _empty_current_directory()
     for path, oid in index.items():
-        os.path.makedirs(os.path.dirname(f"./{path}"), exist_ok=True)
+        Path(path).parent.mkdir(parents=True, exist_ok=True)
         with open(path, 'wb') as f:
             f.write(data.get_object(oid, 'blob'))
 
@@ -308,7 +308,6 @@ def add(filenames):
                 path = os.path.relpath(f"{root}/{filename}")
                 if is_ignored(path) or not os.path.isfile(path):
                     continue
-                print(path)
                 add_file(path)
 
     with data.get_index() as index:
